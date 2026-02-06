@@ -2,4 +2,6 @@ flask==3.0.0
 python-dotenv==1.0.0
 groq==0.4.2
 requests==2.31.0
+Create a ".env" file with then write the code "GROQ_API_KEY=your_groq_api_key_here"
+
 
