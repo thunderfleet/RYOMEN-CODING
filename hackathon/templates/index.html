@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MarketAI Suite</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar">
+        <div class="logo"><i class="fa-solid fa-brain"></i> MarketAI</div>
+        <nav class="nav-menu">
+          <button class="nav-btn active" data-target="campaign">
+            <i class="fa-solid fa-bullhorn"></i> Campaign Gen
+          </button>
+          <button class="nav-btn" data-target="pitch">
+            <i class="fa-solid fa-handshake"></i> Sales Pitch
+          </button>
+          <button class="nav-btn" data-target="scoring">
+            <i class="fa-solid fa-chart-line"></i> Lead Score
+          </button>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <!-- Campaign Generator Section -->
+        <section id="campaign" class="tool-section active">
+          <header>
+            <h1>Campaign Generator</h1>
+            <p>Create targeted marketing campaigns in seconds with AI.</p>
+          </header>
+          <div class="content-grid">
+            <div class="input-card">
+              <form id="campaign-form">
+                <div class="form-group">
+                  <label>Product Description</label>
+                  <textarea
+                    id="camp-product"
+                    placeholder="E.g., Eco-friendly bamboo water bottle..."
+                    required
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Target Audience</label>
+                  <input
+                    type="text"
+                    id="camp-audience"
+                    placeholder="E.g., Gen Z, Outdoor enthusiasts"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Platform</label>
+                  <select id="camp-platform">
+                    <option value="Instagram">Instagram</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Twitter/X">Twitter/X</option>
+                    <option value="Email">Email Newsletter</option>
+                  </select>
+                </div>
+                <button type="submit" class="generate-btn">
+                  <span class="btn-text">Generate Campaign</span>
+                  <span class="loader"></span>
+                </button>
+              </form>
+            </div>
+            <div class="output-card empty" id="camp-result">
+              <div class="placeholder-content">
+                <i class="fa-regular fa-sparkles"></i>
+                <p>AI output will appear here...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sales Pitch Generator Section -->
+        <section id="pitch" class="tool-section">
+          <header>
+            <h1>Sales Pitch Generator</h1>
+            <p>Craft persuasive pitches tailored to your customer persona.</p>
+          </header>
+          <div class="content-grid">
+            <div class="input-card">
+              <form id="pitch-form">
+                <div class="form-group">
+                  <label>Product/Service</label>
+                  <input
+                    type="text"
+                    id="pitch-product"
+                    placeholder="E.g., Enterprise CRM Software"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Customer Persona</label>
+                  <textarea
+                    id="pitch-persona"
+                    placeholder="E.g., CTO of a mid-sized fintech company worried about data security..."
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="generate-btn">
+                  <span class="btn-text">Generate Pitch</span>
+                  <span class="loader"></span>
+                </button>
+              </form>
+            </div>
+            <div class="output-card empty" id="pitch-result">
+              <div class="placeholder-content">
+                <i class="fa-regular fa-sparkles"></i>
+                <p>AI output will appear here...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Lead Scoring Section -->
+        <section id="scoring" class="tool-section">
+          <header>
+            <h1>Lead Scoring</h1>
+            <p>Predict conversion probability based on lead data.</p>
+          </header>
+          <div class="content-grid">
+            <div class="input-card">
+              <form id="score-form">
+                <div class="form-group">
+                  <label>Lead Name</label>
+                  <input
+                    type="text"
+                    id="score-name"
+                    placeholder="E.g., John Doe"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Estimated Budget</label>
+                  <input
+                    type="text"
+                    id="score-budget"
+                    placeholder="E.g., $5,000 - $10,000"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Primary Need</label>
+                  <input
+                    type="text"
+                    id="score-need"
+                    placeholder="E.g., Automate workflow"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Urgency</label>
+                  <select id="score-urgency">
+                    <option value="Low">Low (Browsing)</option>
+                    <option value="Medium">Medium (Considering)</option>
+                    <option value="High">High (Ready to buy)</option>
+                  </select>
+                </div>
+                <button type="submit" class="generate-btn">
+                  <span class="btn-text">Analyze Lead</span>
+                  <span class="loader"></span>
+                </button>
+              </form>
+            </div>
+            <div class="output-card empty" id="score-result">
+              <div class="placeholder-content">
+                <i class="fa-regular fa-chart-bar"></i>
+                <p>Analysis will appear here...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
